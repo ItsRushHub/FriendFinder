@@ -1,57 +1,47 @@
-var express = require("express");
-var exphbs = require("express-handlebars");
+// Dependencies
+var bodyParser = require('body-parser');
+var express = require('express');
+var path = require('path');
 
 var app = express();
 
-app.engine(".handlebars", exphbs({ defaultLayout: "home" }));
-app.set("view engine", ".handlebars");
+//Port
+var PORT = process.env.PORT || 8080;  
 
-var PORT = process.env.PORT || 8080;
-
-var surveyQuestions = [
-    {
-        question: "You love going on vacation every year."
-    },
-    {
-        question: "Family matters alot to you."
-    },
-    {
-        question: "You can't see yourself without a pet."
-    },
-    {
-        question: "You work hard and play hard."
-    },
-    {
-        question: "You are a huge social person."
-    },
-    {
-        question: "You like hanging out with friends."
-    },
-    {
-        Question: "You like to relax bing watching movies."
-    },
-    {
-        Question: "You are a big fan of sports."
-    },
-    {
-        Question: "You like going to a resturant every week."
-    }
-
-
-
-
-
-];
-
-
-
-
-
-
-
-
+// parse application/x-www-form-urlencoded
+app.use(bodyParser.urlencoded({ extended: false }))
+ 
+// parse application/json
+app.use(bodyParser.json())
+ 
+// // Router
+require("./routing/htmlRoutes.js")(app);
+require("./routing/apiRoutes.js")(app);
 
 
 app.listen(PORT, function() {
-    console.log("Server listening on: http://localhost:" + PORT);
-  });
+  console.log("Server listening on: http://localhost:" + PORT);
+});
+
+
+
+
+
+
+
+
+
+// var bodyParser = require('body-parser')
+// var express = require("express");
+// var app = express();
+
+
+
+
+// app.use(express.urlencoded({ extended: true }));
+// app.use(express.json());
+
+
+
+
+

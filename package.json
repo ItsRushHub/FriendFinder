@@ -19,6 +19,9 @@
   "homepage": "https://github.com/ItsRushHub/FriendFinder#readme",
   "dependencies": {
     "body-parser": "^1.18.3",
-    "express": "^4.16.4"
-  }
+    "express": "^4.16.4",
+    "init": "^0.1.2",
+    "node": "^11.11.0"
+  },
+  "devDependencies": {}
 }

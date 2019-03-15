@@ -17,6 +17,7 @@ app.use(bodyParser.json())
 // // Router
 require("./routing/htmlRoutes.js")(app);
 require("./routing/apiRoutes.js")(app);
+require("../data/friends.js")(app);
 
 
 app.listen(PORT, function() {
